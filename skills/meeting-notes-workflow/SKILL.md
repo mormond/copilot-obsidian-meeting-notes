@@ -7,6 +7,9 @@ description: Automated workflow for pulling AI meeting notes from Microsoft 365,
 
 This skill defines the end-to-end process for pulling AI-generated meeting recaps from Microsoft 365 and filing them into the Obsidian vault.
 
+## Notes
+- Assume 'account' and 'customer' are synonymous 
+
 ## Prerequisites
 
 - **WorkIQ** skill must be available (for querying M365 calendar/transcripts)
@@ -61,9 +64,8 @@ Use this folder structure:
 ```
 
 Rules:
-- Assume 'account' and 'customer' are synonymous 
 - **PREFIX** is the account name for customer meetings and should match an existing `account` property value
-- If no matching `account` is found, use `unknown'
+- If no matching `account` is found, use `unknown`
 - No prefix for internal meetings
 - **Short Title** should be concise but recognizable
 
@@ -76,16 +78,16 @@ Meetings/2026/01/2026-01-19 - Azure Data - Insiders Power BI Track.md
 
 ## Step 6: Format the Note
 
-Use this template:
+Use this template for all meeting categories:
 
 ```markdown
 ---
 created: YYYY-MM-DD
 date: YYYY-MM-DD
 type: meeting
-account: "[[ACCOUNT]]"     # omit for internal meetings
+account: "[[ACCOUNT]]"     # omit account for internal meetings
 category: customer|internal
-attendees:
+attendees:                 # omit attendees for internal meetings
   - Name 1
   - Name 2
 tags:
@@ -126,6 +128,7 @@ summary: Insert a one sentence of summary to help identify the meeting
 ```
 
 Key formatting rules:
+- Don't include the `account` or `attendees` properties for internal meetings
 - Tags should be lowercase, hyphenated
 - Always include `ai-notes` tag
 - Add 2-4 topic tags based on content (e.g., `fabric`, `sql-migration`, `power-bi`, `copilot`)
