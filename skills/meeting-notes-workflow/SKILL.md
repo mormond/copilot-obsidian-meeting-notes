@@ -85,7 +85,7 @@ Use this template for all meeting categories:
 created: YYYY-MM-DD
 date: YYYY-MM-DD
 type: meeting
-account: "[[ACCOUNT]]"     # omit account for internal meetings
+account: "ACCOUNT"     # omit account for internal meetings
 category: customer|internal
 attendees:                 # omit attendees for internal meetings
   - Name 1
