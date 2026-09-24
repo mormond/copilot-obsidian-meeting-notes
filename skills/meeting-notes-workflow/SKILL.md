@@ -57,20 +57,20 @@ Check the `Customers/` folder in the vault for existing customer pages to link t
 Use this folder structure:
 
 ```
-Meetings/YYYY/MM/Week of MM-DD/YYYY-MM-DD - [PREFIX] [Short Title].md
+011 Meetings/YYYY/MM/YYYY-MM-DD - [PREFIX] - [Short Title].md
 ```
 
 Rules:
-- **Week folder** is anchored to the Monday of that week (even if the week spans months)
-- **PREFIX** is the customer short name for customer meetings (e.g., `Contoso`, `Acme`)
+- **PREFIX** is the customer name for customer meetings and should match an existing `account` property value
+- If no matching `account` is found, use `unknown'
 - No prefix for internal meetings
 - **Short Title** should be concise but recognizable
 
 Examples:
 ```
-Meetings/2026/01/Week of 01-19/2026-01-20 - Contoso Architecture Review.md
-Meetings/2026/01/Week of 01-19/2026-01-20 - Acme Data Migration Prep.md
-Meetings/2026/01/Week of 01-19/2026-01-19 - Azure Data Insiders Power BI Track.md
+Meetings/2026/01/2026-01-20 - Contoso - Architecture Review.md
+Meetings/2026/01/2026-01-20 - Acme Data - Migration Prep.md
+Meetings/2026/01/2026-01-19 - Azure Data - Insiders Power BI Track.md
 ```
 
 ## Step 6: Format the Note
@@ -147,7 +147,7 @@ Note: Emojis don't render correctly through the CLI. Use plain text only.
 After filing all meeting notes, check if daily notes exist for those dates:
 
 ```
-obsidian files folder="Daily"
+obsidian files folder="001 Daily Notes"
 ```
 
 For each daily note that exists on a meeting date:
@@ -158,7 +158,7 @@ For each daily note that exists on a meeting date:
 4. Add an inline wikilink next to the matching heading:
 
 ```markdown
-# Contoso Project Update [[2026-01-20 - Contoso Architecture Review|AI Notes]]
+# Contoso Project Update [[2026-01-20 - Contoso - Architecture Review|AI Notes]]
  - my scratch notes here...
 ```
 
