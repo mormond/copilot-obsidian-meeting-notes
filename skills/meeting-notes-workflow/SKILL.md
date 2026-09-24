@@ -50,7 +50,7 @@ Determine the category and customer for each meeting:
 | Meeting involves an external partner or vendor | customer | `"[[Partner Name]]"` |
 | Internal Microsoft meeting | internal | omit customer field |
 
-Check the `Customers/` folder in the vault for existing customer pages to link to.
+Check the `021 Accounts/` folder in the vault for existing account pages to link to.
 
 ## Step 5: Determine the Filing Path
 
@@ -61,7 +61,8 @@ Use this folder structure:
 ```
 
 Rules:
-- **PREFIX** is the customer name for customer meetings and should match an existing `account` property value
+- Assume 'account' and 'customer' are synonymous 
+- **PREFIX** is the account name for customer meetings and should match an existing `account` property value
 - If no matching `account` is found, use `unknown'
 - No prefix for internal meetings
 - **Short Title** should be concise but recognizable
@@ -79,17 +80,20 @@ Use this template:
 
 ```markdown
 ---
+created: YYYY-MM-DD
 date: YYYY-MM-DD
-type: meeting-notes
-customer: "[[CUSTOMER]]"     # omit for internal meetings
+type: meeting
+account: "[[ACCOUNT]]"     # omit for internal meetings
 category: customer|internal
 attendees:
   - Name 1
   - Name 2
 tags:
   - ai-notes
+  - meeting
   - topic-tag-1
   - topic-tag-2
+summary: Insert a one sentence of summary to help identify the meeting
 ---
 
 # [Meeting Title]
@@ -126,7 +130,7 @@ Key formatting rules:
 - Always include `ai-notes` tag
 - Add 2-4 topic tags based on content (e.g., `fabric`, `sql-migration`, `power-bi`, `copilot`)
 - Attendees list should include all known attendees
-- Customer wikilinks use the short name matching the file in `Customers/`
+- Customer wikilinks use the short name matching the file in `021 Accounts/`
 
 ## Step 7: Create the Note via CLI
 
